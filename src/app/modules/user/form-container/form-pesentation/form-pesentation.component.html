@@ -1,0 +1,86 @@
+<body>
+    <div class="container pt-4">
+        <h2>Add User Details</h2>
+        <hr>
+        <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Name</label>
+                <div class="col-3">
+                    <input type="text" class="form-control" placeholder="Enter Name" formControlName="name">
+                </div>
+            </div>
+            <br>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Email</label>
+                <div class="col-3">
+                    <input type="email" class="form-control" placeholder="Enter Email" formControlName="email">
+                </div>
+            </div>
+            <br>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Mobile</label>
+                <div class="col-3">
+                    <input type="text" class="form-control" placeholder="Enter Mobile No." formControlName="mobile">
+                </div>
+            </div>
+            <br>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">City</label>
+                <div class="col-3">
+                    <input type="text" class="form-control" placeholder="Enter City" formControlName="city">
+                </div>
+            </div>
+            <br>
+            <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Gender</label>
+                <div class="form-check col-1">
+                    <input class="form-check-input" type="radio" name="gender" value="male" formControlName="gender">
+                    <label class="form-check-label">Male</label>
+                </div>
+                <div class="form-check col-1">
+                    <input class="form-check-input" type="radio" name="gender" value="female"formControlName="gender">
+                    <label class="form-check-label">Female</label>
+                </div>
+                <div class="form-check col-1">
+                    <input class="form-check-input" type="radio" name="gender" value="other" formControlName="gender">
+                    <label class="form-check-label">Other</label>
+                </div>
+            </div>
+            <br>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Department</label>
+                <div class="col-3">
+                    <select class="form-select" formControlName="department">
+                        <option disabled selected>Select Department</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Hire Date</label>
+                <div class="col-3">
+                    <input type="date" class="form-control" formControlName="hireDate">
+                </div>
+            </div>
+            <br>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label"></label>
+                <div class="col-3 form-check">
+                    <input class="form-check-input" type="checkbox" formControlName="permanent">
+                    <label class="form-check-label">Permanent Employee</label>
+                </div>
+            </div>
+            <br>
+            <div class="form-group row">
+                    <label class="col-sm-1 col-form-label"></label>
+            <button type="submit" class="btn btn-success col-1">Submit</button>
+            <button type="button" class="btn btn-danger col-1 mx-5">Clear</button>
+        </div>
+        </form>
+    </div>
+</body>
