@@ -26,4 +26,16 @@ export class UserService {
         
      })
    }
+
+   putData(data : User,id : string){
+     this.http.put(`${this.url}/${id}`,data).subscribe((res)=> {
+       console.log("Data added Successfully")
+     });
+   }
+
+   deleteData(id : string){
+     this.http.delete(`${this.url}/${id}`).subscribe((res) => {
+       console.log("User Deleted Successfully")
+     })
+   }
 }

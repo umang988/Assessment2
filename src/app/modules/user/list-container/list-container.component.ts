@@ -24,5 +24,8 @@ export class ListContainerComponent implements OnInit {
     
   }
 
+  removeUser(event){
+    this.userService.deleteData(event);
+  }
 
 }

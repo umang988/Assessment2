@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { User } from 'src/app/core/model/user.model';
 
 @Component({
@@ -10,10 +10,16 @@ export class ListPesentationComponent implements OnInit {
 
   @Input() user : User;
 
+  @Output() removeUser : EventEmitter<User> = new EventEmitter();
+
   constructor() { }
 
   ngOnInit(): void {    
     console.log(this.user)
+  }
+
+  deleteUser(id){
+    this.removeUser.emit(id);
   }
 
 }

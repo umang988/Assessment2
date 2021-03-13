@@ -12,11 +12,12 @@ import { UserService } from 'src/app/shared/services/user-services/user.service'
 })
 export class FormContainerComponent implements OnInit {
 
-  public editId : number;
+  public editId : string;
   userData$ : Observable<User>;
 
   constructor(private userService : UserService, private router : Router, private activatedRoute : ActivatedRoute) { 
     const id = this.activatedRoute.snapshot.paramMap.get('id');
+    this.editId = id;
     if(id){
       this.getDataById(+id);
 
@@ -30,6 +31,11 @@ export class FormContainerComponent implements OnInit {
   userAddedData(event){
     this.userData = event;
     this.userService.addData(this.userData);
+    this.router.navigate(['./user']);
+  }
+
+  userEditedData(event){
+    this.userService.putData(event,this.editId);
     this.router.navigate(['./user']);
   }
 

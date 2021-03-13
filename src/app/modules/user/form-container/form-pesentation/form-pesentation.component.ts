@@ -12,10 +12,13 @@ export class FormPesentationComponent implements OnInit {
 
   userForm : FormGroup;
   private _user: any;
+  public isEditable : boolean = false;
+
   @Input() set userData(value : User){
     if(value){
       this._user = value;
       this.setUserDetails(value);
+      this.isEditable = true;
     }
   }
 
@@ -26,6 +29,8 @@ export class FormPesentationComponent implements OnInit {
 
   @Output() userAddedData : EventEmitter<FormGroup> = new EventEmitter();
 
+  @Output() userEditedData : EventEmitter<FormGroup> = new EventEmitter();
+
   constructor(private formPresenterService : FormPresenterService) {
     this.userForm = this.formPresenterService.bindForm();
     this._user = null;
@@ -35,11 +40,21 @@ export class FormPesentationComponent implements OnInit {
     }
 
   onSubmit(){
-    this.userAddedData.emit(this.userForm.value)
+    if(this.isEditable === false){
+      this.userAddedData.emit(this.userForm.value);
+    }
+    else{
+      this.userEditedData.emit(this.userForm.value)
+    }
+    
   }
 
   setUserDetails(value){
     this.userForm.reset(value);
+  }
+
+  clearForm(){
+    this.userForm.reset();
   }
 
 }
