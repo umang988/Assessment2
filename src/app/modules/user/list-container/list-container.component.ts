@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { User } from 'src/app/core/model/user.model';
+import { UserService } from 'src/app/shared/services/user-services/user.service';
 
 @Component({
   selector: 'app-list-container',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListContainerComponent implements OnInit {
 
-  constructor() { }
+  public user$ : Observable<User>;
+
+  constructor(private userService : UserService) { }
 
   ngOnInit(): void {
+    this.getDataFromService();
   }
+
+  getDataFromService () {
+    
+    this.user$ = this.userService.getData()
+    
+  }
+
 
 }

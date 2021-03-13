@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { User } from 'src/app/core/model/user.model';
 import { FormGroup } from '@angular/forms';
 import { FormPresenterService } from '../form-presenter/form-presenter.service';
@@ -11,18 +11,35 @@ import { FormPresenterService } from '../form-presenter/form-presenter.service';
 export class FormPesentationComponent implements OnInit {
 
   userForm : FormGroup;
+  private _user: any;
+  @Input() set userData(value : User){
+    if(value){
+      this._user = value;
+      this.setUserDetails(value);
+    }
+  }
 
-  @Output() formData : EventEmitter<FormGroup> = new EventEmitter();
+  get employee(): User {
+    console.log('Getter' + this._user);
+    return this._user;
+  }
+
+  @Output() userAddedData : EventEmitter<FormGroup> = new EventEmitter();
 
   constructor(private formPresenterService : FormPresenterService) {
     this.userForm = this.formPresenterService.bindForm();
+    this._user = null;
    }
 
   ngOnInit(): void {
     }
 
   onSubmit(){
-    this.formData.emit(this.userForm.value)
+    this.userAddedData.emit(this.userForm.value)
+  }
+
+  setUserDetails(value){
+    this.userForm.reset(value);
   }
 
 }

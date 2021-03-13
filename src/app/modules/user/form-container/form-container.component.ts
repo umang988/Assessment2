@@ -1,5 +1,9 @@
+import { NumberSymbol } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { User } from 'src/app/core/model/user.model';
+import { UserService } from 'src/app/shared/services/user-services/user.service';
 
 @Component({
   selector: 'app-form-container',
@@ -8,16 +12,29 @@ import { User } from 'src/app/core/model/user.model';
 })
 export class FormContainerComponent implements OnInit {
 
-  constructor() { }
+  public editId : number;
+  userData$ : Observable<User>;
 
-  getData : User;
+  constructor(private userService : UserService, private router : Router, private activatedRoute : ActivatedRoute) { 
+    const id = this.activatedRoute.snapshot.paramMap.get('id');
+    if(id){
+      this.getDataById(+id);
+
+    }
+  }
+
+  userData : User;
   ngOnInit(): void {
   }
 
-  formData(event){
-    this.getData = event;
-    console.log(this.getData);
-    
+  userAddedData(event){
+    this.userData = event;
+    this.userService.addData(this.userData);
+    this.router.navigate(['./user']);
+  }
+
+  getDataById(id){
+    this.userData$ = this.userService.getDataById(id)
   }
 
 }

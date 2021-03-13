@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { User } from 'src/app/core/model/user.model';
 
 @Component({
   selector: 'app-list-pesentation',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListPesentationComponent implements OnInit {
 
+  @Input() user : User;
+
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {    
+    console.log(this.user)
   }
 
 }

@@ -1,0 +1,48 @@
+{
+  "user": [
+    {
+      "name": "Umang",
+      "email": "umang@gmail.com",
+      "mobile": "9157473028",
+      "city": "Valsad",
+      "gender": "male",
+      "department": "2",
+      "hireDate": "2021-03-10",
+      "permanent": true,
+      "id": 1
+    },
+    {
+      "name": "Pratik",
+      "email": "pratik@gmail.com",
+      "mobile": "1234567890",
+      "city": "Surat",
+      "gender": "male",
+      "department": "3",
+      "hireDate": "2021-03-23",
+      "permanent": true,
+      "id": 2
+    },
+    {
+      "name": "Devu",
+      "email": "devu@gmail.com",
+      "mobile": "2121212112",
+      "city": "Vadodara",
+      "gender": "female",
+      "department": "4",
+      "hireDate": "2021-03-24",
+      "permanent": true,
+      "id": 3
+    },
+    {
+      "name": "Shivam",
+      "email": "Singh",
+      "mobile": "1234567890",
+      "city": "Valsad",
+      "gender": "male",
+      "department": "3",
+      "hireDate": "2021-03-24",
+      "permanent": true,
+      "id": 4
+    }
+  ]
+}

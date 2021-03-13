@@ -1,1 +1,1 @@
-<app-form-pesentation (formData)="formData($event)"></app-form-pesentation>
+<app-form-pesentation [userData] = "userData$ | async" (userAddedData)="userAddedData($event)"></app-form-pesentation>
