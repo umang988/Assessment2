@@ -13,13 +13,13 @@ export class FormPresenterService {
   bindForm(){
     return new FormGroup({
       name : new FormControl('',Validators.required),
-      email : new FormControl(),
-      mobile : new FormControl(),
-      city : new FormControl(),
-      gender : new FormControl(),
-      department : new FormControl(),
-      hireDate : new FormControl(),
-      permanent : new FormControl(),
+      email : new FormControl('',Validators.required),
+      mobile : new FormControl('',Validators.required),
+      city : new FormControl('',Validators.required),
+      gender : new FormControl('',Validators.required),
+      department : new FormControl('',Validators.required),
+      hireDate : new FormControl('',Validators.required),
+      permanent : new FormControl('',Validators.required),
     })
   }
 

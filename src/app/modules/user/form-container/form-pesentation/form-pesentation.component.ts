@@ -11,7 +11,7 @@ import { FormPresenterService } from '../form-presenter/form-presenter.service';
 export class FormPesentationComponent implements OnInit {
 
   userForm : FormGroup;
-  private _user: any;
+  private _user: User;
   public isEditable : boolean = false;
 
   department = [

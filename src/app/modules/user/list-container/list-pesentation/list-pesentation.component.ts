@@ -22,4 +22,8 @@ export class ListPesentationComponent implements OnInit {
     this.removeUser.emit(id);
   }
 
+  hello(){
+    console.log(this.user.name)
+  }
+
 }
