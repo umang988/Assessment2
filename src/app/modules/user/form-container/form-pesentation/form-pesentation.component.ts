@@ -14,6 +14,10 @@ export class FormPesentationComponent implements OnInit {
   private _user: any;
   public isEditable : boolean = false;
 
+  department = [
+    'Angular','UI','ML','QA','BA','.net'
+  ]
+
   @Input() set userData(value : User){
     if(value){
       this._user = value;

@@ -1,16 +1,18 @@
 import { Injectable } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FormPresenterService {
 
-  constructor() { }
+  constructor() {
+   }
 
   bindForm(){
     return new FormGroup({
-      name : new FormControl(),
+      name : new FormControl('',Validators.required),
       email : new FormControl(),
       mobile : new FormControl(),
       city : new FormControl(),
@@ -20,4 +22,5 @@ export class FormPresenterService {
       permanent : new FormControl(),
     })
   }
+
 }
