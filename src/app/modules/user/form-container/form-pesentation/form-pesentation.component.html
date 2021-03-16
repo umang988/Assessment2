@@ -6,7 +6,15 @@
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Name</label>
                 <div class="col-3">
-                    <input type="text" class="form-control" placeholder="Enter Name" formControlName="name">
+                    <input type="text" class="form-control" name="name" placeholder="Enter Name" formControlName="name">
+                    <div *ngIf="userForm.controls.name.invalid && userForm.controls.name.touched" class="alert alert-danger">
+                        <div *ngIf="userForm.controls.name.errors?.required;else invalidBlock">
+                          Name is required.
+                        </div>
+                        <ng-template #invalidBlock>
+                            *Name Should not contain numbers.
+                        </ng-template>
+                      </div>
                 </div>
             </div>
             <br>
@@ -14,13 +22,30 @@
                 <label class="col-sm-2 col-form-label">Email</label>
                 <div class="col-3">
                     <input type="email" class="form-control" placeholder="Enter Email" formControlName="email">
+                    <div *ngIf="userForm.controls.email.invalid && userForm.controls.email.touched" class="alert alert-danger">
+                        <div *ngIf="userForm.controls.email.errors?.required;else invalidBlock ">
+                          Email is required.
+                        </div>
+                        <ng-template #invalidBlock>
+                            Enter correct Email Address
+                        </ng-template>
+                      </div>
                 </div>
+                
             </div>
             <br>
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Mobile</label>
                 <div class="col-3">
                     <input type="text" class="form-control" placeholder="Enter Mobile No." formControlName="mobile">
+                    <div *ngIf="userForm.controls.mobile.invalid && userForm.controls.mobile.touched" class="alert alert-danger">
+                        <div *ngIf="userForm.controls.mobile.errors?.required;else invalidBlock ">
+                          Mobile No. is required.
+                        </div>
+                        <ng-template #invalidBlock>
+                            Only 10 digits accepted
+                        </ng-template>
+                      </div>
                 </div>
             </div>
             <br>
@@ -28,7 +53,16 @@
                 <label class="col-sm-2 col-form-label">City</label>
                 <div class="col-3">
                     <input type="text" class="form-control" placeholder="Enter City" formControlName="city">
+                    <div *ngIf="userForm.controls.city.invalid && userForm.controls.city.touched" class="alert alert-danger">
+                        <div *ngIf="userForm.controls.city.errors?.required;else invalidBlock ">
+                          city is required.
+                        </div>
+                        <ng-template #invalidBlock>
+                            City should not contain numbers
+                        </ng-template>
+                      </div>
                 </div>
+                
             </div>
             <br>
             <div class="form-group row">
@@ -45,15 +79,21 @@
                     <input class="form-check-input" type="radio" name="gender" value="other" formControlName="gender">
                     <label class="form-check-label">Other</label>
                 </div>
+                
             </div>
             <br>
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Department</label>
                 <div class="col-3">
                     <select class="form-select" formControlName="department">
-                        <option disabled selected>Select Department</option>
+                        <option hidden>Select Department</option>
                         <option *ngFor="let d of department">{{ d }}</option>
                     </select>
+                    <div *ngIf="userForm.controls.department.invalid && userForm.controls.department.touched" class="alert alert-danger">
+                        <div *ngIf="userForm.controls.department.errors?.required">
+                          Department is required.
+                        </div>
+                      </div>
                 </div>
             </div>
             <br>
@@ -61,7 +101,13 @@
                 <label class="col-sm-2 col-form-label">Hire Date</label>
                 <div class="col-3">
                     <input type="date" class="form-control" formControlName="hireDate">
+                    <div *ngIf="userForm.controls.hireDate.invalid && userForm.controls.hireDate.touched" class="alert alert-danger">
+                        <div *ngIf="userForm.controls.hireDate.errors?.required">
+                          Hire Date is required.
+                        </div>
+                      </div>
                 </div>
+                
             </div>
             <br>
             <div class="form-group row">
@@ -74,7 +120,7 @@
             <br>
             <div class="form-group row">
                     <label class="col-sm-1 col-form-label"></label>
-            <button type="submit" class="btn btn-success col-1">{{ isEditable ? 'Edit User' : 'Add User' }}</button>
+            <button #submitBtn type="submit" [disabled]="userForm.invalid" class="btn btn-success col-1">{{ isEditable ? 'Edit User' : 'Add User' }}</button>
             <button type="button" class="btn btn-danger col-1 mx-5" (click)="clearForm()">Clear</button>
         </div>
         </form>

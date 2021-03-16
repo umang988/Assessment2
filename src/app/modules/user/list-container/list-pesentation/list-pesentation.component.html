@@ -1,29 +1,39 @@
 <div class="container">
-    <a [routerLink]="['add']" routerLinkActive="router-link-active" >Add User</a>
-    <br>
-    <br>
-    <table class="table">
-        <thead>
-          <tr>
-            <th scope="col"><button class="table-btn" (click)="hello()">Name</button></th>
-            <th scope="col">Email</th>
-            <th scope="col">Mobile</th>
-            <th scope="col">City</th>
-            <th scope="col">Department</th>
-            <th scope="col"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let user of user">
-            <td>{{ user.name }}</td>
-            <td> {{ user.email }} </td>
-            <td> {{ user.mobile }}</td>
-            <td> {{ user.city }} </td>
-            <td> {{ user.department }} </td>
-            <td><button class="btn btn-primary" [routerLink]="['edit',user.id]">Edit</button><button class="btn btn-secondary mx-2" (click)="deleteUser(user.id)">Delete</button></td>
-          </tr>
-        </tbody>
-      </table>
-    
-</div>
+  <a [routerLink]="['add']" routerLinkActive="router-link-active">Add User</a>
+  <div class="textbox col-4">
+    <input type="text" class="form-control" [(ngModel)] = "searchValue" placeholder="Type to Search...">
+  </div>
+  <br>
+  <br>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col"><button class="table-btn">Name</button></th>
+        <th scope="col">Email</th>
+        <th scope="col">Mobile</th>
+        <th scope="col">City</th>
+        <th scope="col">Department</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of userList | searchFilter:searchValue | slice:startIndex:endIndex">
+        <td><button (click)="sortPipe()">{{ user.name }}</button></td>
+        <td> {{ user.email }} </td>
+        <td> {{ user.mobile }}</td>
+        <td> {{ user.city }} </td>
+        <td> {{ user.department }} </td>
+        <td>
+          <button class="btn btn-primary" [routerLink]="['edit',user.id]">Edit</button>
+          <button class="btn btn-secondary mx-2" (click)="deleteUser(user.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <nav>
+    <ul class="pagination">
+      <li *ngFor="let user of getArray(userList.length); let i=index" class="page-item"><button class="page-index" (click)=updateIndex(i)>{{i+1}}</button></li>
+    </ul>
+  </nav>
 
+</div>

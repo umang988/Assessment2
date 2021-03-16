@@ -7,7 +7,9 @@ import { ListContainerComponent } from './list-container/list-container.componen
 import { FormContainerComponent } from './form-container/form-container.component';
 import { ListPesentationComponent } from './list-container/list-pesentation/list-pesentation.component';
 import { FormPesentationComponent } from './form-container/form-pesentation/form-pesentation.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { SortFilterPipe } from 'src/app/shared/pipe/sort-filter.pipe';
 
 
 @NgModule({
@@ -16,7 +18,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     UserRoutingModule,
     ReactiveFormsModule,
-    
+    FormsModule,
+    SharedModule,
+    SortFilterPipe
   ]
 })
 export class UserModule { }

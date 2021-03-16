@@ -41,16 +41,18 @@ export class FormPesentationComponent implements OnInit {
    }
 
   ngOnInit(): void {
+      this.formPresenterService.userData$.subscribe((customerData : any) => {
+        if(this.isEditable === false){
+          this.userAddedData.emit(customerData);
+        }
+        else{
+          this.userEditedData.emit(customerData)
+        }
+      })
     }
 
   onSubmit(){
-    if(this.isEditable === false){
-      this.userAddedData.emit(this.userForm.value);
-    }
-    else{
-      this.userEditedData.emit(this.userForm.value)
-    }
-    
+      this.formPresenterService.userDetails(this.userForm)
   }
 
   setUserDetails(value){
