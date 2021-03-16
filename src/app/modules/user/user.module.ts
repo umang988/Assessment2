@@ -9,7 +9,6 @@ import { ListPesentationComponent } from './list-container/list-pesentation/list
 import { FormPesentationComponent } from './form-container/form-pesentation/form-pesentation.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { SortFilterPipe } from 'src/app/shared/pipe/sort-filter.pipe';
 
 
 @NgModule({
@@ -20,7 +19,7 @@ import { SortFilterPipe } from 'src/app/shared/pipe/sort-filter.pipe';
     ReactiveFormsModule,
     FormsModule,
     SharedModule,
-    SortFilterPipe
+    
   ]
 })
 export class UserModule { }

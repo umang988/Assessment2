@@ -61,11 +61,12 @@
       "mobile": "1123123122",
       "city": "Surat",
       "gender": "female",
-      "department": "UI",
+      "department": "QA",
       "hireDate": "2021-03-25",
       "permanent": true,
       "id": 6
-    },{
+    },
+    {
       "name": "Umang",
       "email": "umang@gmail.com",
       "mobile": "9157473028",
@@ -75,17 +76,6 @@
       "hireDate": "2021-03-10",
       "permanent": true,
       "id": 7
-    },
-    {
-      "name": "Pratik",
-      "email": "pratik@gmail.com",
-      "mobile": "1234567890",
-      "city": "Surat",
-      "gender": "male",
-      "department": "Angular",
-      "hireDate": "2021-03-23",
-      "permanent": true,
-      "id": 8
     },
     {
       "name": "Devu",
@@ -100,7 +90,7 @@
     },
     {
       "name": "Shivam",
-      "email": "shivam@gmail.com",
+      "email": "shivamsingh31121999@gmail.com",
       "mobile": "1234567890",
       "city": "Valsad",
       "gender": "male",
@@ -121,15 +111,26 @@
       "id": 11
     },
     {
-      "name": "Dhruvi",
-      "email": "dhruvi@gmail.com",
+      "name": "Shivam Mistry",
+      "email": "shivam@gmail.com",
       "mobile": "1123123122",
-      "city": "Surat",
-      "gender": "female",
-      "department": "UI",
-      "hireDate": "2021-03-25",
+      "city": "Mumbai",
+      "gender": "male",
+      "department": "BA",
+      "hireDate": "2021-03-10",
       "permanent": true,
       "id": 12
+    },
+    {
+      "name": "Ali",
+      "email": "ali@123.com",
+      "mobile": "4567896541",
+      "city": "Dubai",
+      "gender": "male",
+      "department": "Angular",
+      "hireDate": "2021-03-09",
+      "permanent": true,
+      "id": 13
     }
   ]
 }

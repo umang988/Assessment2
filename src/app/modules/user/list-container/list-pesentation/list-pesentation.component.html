@@ -8,8 +8,8 @@
   <table class="table">
     <thead>
       <tr>
-        <th scope="col"><button class="table-btn">Name</button></th>
-        <th scope="col">Email</th>
+        <th scope="col">Name</th>
+        <th scope="col"><button (click) ="sortAsc()" (dblclick)="sortDesc()" class="table-btn">Email</button></th>
         <th scope="col">Mobile</th>
         <th scope="col">City</th>
         <th scope="col">Department</th>
@@ -18,7 +18,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let user of userList | searchFilter:searchValue | slice:startIndex:endIndex">
-        <td><button (click)="sortPipe()">{{ user.name }}</button></td>
+        <td> {{ user.name }} </td>
         <td> {{ user.email }} </td>
         <td> {{ user.mobile }}</td>
         <td> {{ user.city }} </td>

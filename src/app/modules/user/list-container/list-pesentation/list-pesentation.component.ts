@@ -1,6 +1,7 @@
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { User } from 'src/app/core/model/user.model';
 import { ListPresenterService } from '../list-presenter/list-presenter.service';
+import { SortFilterPipe } from 'src/app/shared/pipe/sort-filter.pipe';
 
 
 @Component({
@@ -11,6 +12,9 @@ import { ListPresenterService } from '../list-presenter/list-presenter.service';
 export class ListPesentationComponent implements OnInit {
 
   searchValue : string;
+
+  sortFilter : SortFilterPipe;
+  sortedUser : SortFilterPipe;
 
   startIndex = 0;
   endIndex = 5;
@@ -52,7 +56,34 @@ export class ListPesentationComponent implements OnInit {
     this.endIndex = this.startIndex + 5;
   }
 
-  sortPipe(){
+  noSorting(){
+    return this.userList
+  }
+
+  sortAsc(){
+    return this.userList.sort((a,b)=>{
+      let x=a.name.toLowerCase();
+      let y=b.name.toLowerCase();
+      if(x<y){
+        return -1;
+      }else{
+        return 1;
+      }
+      return 0;
+    });
+  }
+
+  sortDesc(){
+    return this.userList.sort((a,b)=>{
+      let x=a.name.toLowerCase();
+      let y=b.name.toLowerCase();
+      if(x<y){
+        return 1;
+      }else{
+        return -1;
+      }
+      return 0;
+    });
   }
 
 }
